@@ -1,0 +1,1057 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S4G X CHEATZ - Premium VIP Panels</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rajdhani:wght@500;600;700&family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #0b0e14;
+            color: #ffffff;
+            font-family: 'Space Grotesk', sans-serif;
+            min-height: 100vh;
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 15% 20%, rgba(0, 242, 254, 0.08) 0%, transparent 40%),
+                radial-gradient(circle at 85% 80%, rgba(255, 0, 85, 0.08) 0%, transparent 40%);
+        }
+
+        .font-orbitron {
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        .font-rajdhani {
+            font-family: 'Rajdhani', sans-serif;
+        }
+
+        /* Top Admin Bar Switch */
+        .admin-top-bar {
+            position: fixed;
+            top: 15px;
+            right: 15px;
+            z-index: 100;
+        }
+
+        .btn-admin-top {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 18px;
+            border-radius: 20px;
+            background: rgba(255, 0, 85, 0.15);
+            border: 1px solid #ff0055;
+            color: #ff0055;
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-decoration: none;
+            cursor: pointer;
+            box-shadow: 0 0 12px rgba(255, 0, 85, 0.3);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            backdrop-filter: blur(8px);
+        }
+
+        .btn-admin-top:hover {
+            background: #ff0055;
+            color: #ffffff;
+            box-shadow: 0 0 25px rgba(255, 0, 85, 0.8);
+            transform: translateY(-2px);
+        }
+
+        /* Glassmorphism Card Style */
+        .glass-panel {
+            background: rgba(18, 24, 38, 0.75);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+        }
+
+        /* Avatar Pulsing Glow */
+        .avatar-glow {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #00f2fe, #4facfe, #00ff88);
+            box-shadow: 0 0 25px rgba(0, 242, 254, 0.8);
+            padding: 3px;
+            animation: pulse-glow 3s infinite alternate;
+        }
+
+        .admin-avatar-glow {
+            background: linear-gradient(45deg, #ff0055, #ff7700, #ff00ea);
+            box-shadow: 0 0 25px rgba(255, 0, 85, 0.8);
+        }
+
+        @keyframes pulse-glow {
+            0% { box-shadow: 0 0 15px rgba(0, 242, 254, 0.6); }
+            100% { box-shadow: 0 0 32px rgba(0, 255, 136, 0.9); }
+        }
+
+        /* Main Gradient Titles */
+        .title-glow {
+            background: linear-gradient(90deg, #3a7bd5, #00d2ff, #a8ff78);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .admin-title-glow {
+            background: linear-gradient(90deg, #ff0055, #ff7700, #ff00ea);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Category Platform Buttons Glows */
+        .btn-ios {
+            border: 2px solid #ffffff;
+            box-shadow: 0 0 14px rgba(255, 255, 255, 0.25);
+            color: #ffffff;
+        }
+        .btn-ios:hover {
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 0 25px rgba(255, 255, 255, 0.6);
+            transform: translateY(-3px);
+        }
+
+        .btn-android {
+            border: 2px solid #3ddc84;
+            box-shadow: 0 0 14px rgba(61, 220, 132, 0.3);
+            color: #3ddc84;
+        }
+        .btn-android:hover {
+            background: rgba(61, 220, 132, 0.15);
+            box-shadow: 0 0 25px rgba(61, 220, 132, 0.7);
+            transform: translateY(-3px);
+        }
+
+        .btn-pc {
+            border: 2px solid #00adef;
+            box-shadow: 0 0 14px rgba(0, 173, 239, 0.3);
+            color: #00adef;
+        }
+        .btn-pc:hover {
+            background: rgba(0, 173, 239, 0.15);
+            box-shadow: 0 0 25px rgba(0, 173, 239, 0.7);
+            transform: translateY(-3px);
+        }
+
+        .btn-private {
+            border: 2px solid #ff0055;
+            box-shadow: 0 0 14px rgba(255, 0, 85, 0.3);
+            color: #ff0055;
+        }
+        .btn-private:hover {
+            background: rgba(255, 0, 85, 0.18);
+            box-shadow: 0 0 25px rgba(255, 0, 85, 0.8);
+            transform: translateY(-3px);
+        }
+
+        .btn-whatsapp-admin {
+            border: 2px solid #25d366;
+            box-shadow: 0 0 14px rgba(37, 211, 102, 0.3);
+            color: #25d366;
+        }
+        .btn-whatsapp-admin:hover {
+            background: rgba(37, 211, 102, 0.18);
+            box-shadow: 0 0 25px rgba(37, 211, 102, 0.8);
+            transform: translateY(-3px);
+        }
+
+        .btn-back {
+            border: 2px solid #a0aec0;
+            color: #a0aec0;
+        }
+        .btn-back:hover {
+            background: rgba(160, 174, 192, 0.2);
+            color: #ffffff;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0b0e14;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1f293d;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #00f2fe;
+        }
+
+        /* Responsive Modal Animations */
+        .modal-enter {
+            animation: modalIn 0.25s ease-out forwards;
+        }
+        @keyframes modalIn {
+            from {
+                opacity: 0;
+                transform: scale(0.95) translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+    </style>
+</head>
+<body class="flex flex-col items-center justify-start min-h-screen px-4 pt-16 pb-12">
+
+    <!-- Top Fixed Admin Button -->
+    <div class="admin-top-bar">
+        <button id="toggleViewBtn" class="btn-admin-top" onclick="toggleMainView()">
+            <i class="fa-solid fa-user-shield"></i>
+            <span id="toggleText">Admin Page</span>
+        </button>
+    </div>
+
+    <!-- Main Container -->
+    <main class="w-full max-w-md flex flex-col items-center text-center">
+
+        <!-- ================= PAGE 1: PUBLIC MAIN HOME PAGE ================= -->
+        <section id="homePage" class="w-full flex flex-col items-center">
+            <!-- Glowing Avatar -->
+            <div class="avatar-glow mb-5 relative flex items-center justify-center">
+                <img id="displayLogo" src="https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=300&q=80" alt="S4G Avatar" class="w-full h-full rounded-full object-cover bg-slate-900" onerror="this.src='https://placehold.co/130x130/121824/ffffff?text=S4G'">
+            </div>
+
+            <!-- Title & Subtitle -->
+            <h1 id="displayTitle" class="title-glow text-3xl font-orbitron font-extrabold tracking-wider mb-2">S4G X CHEATZ</h1>
+            <p id="displaySubtitle" class="text-slate-400 text-sm mb-8 font-rajdhani font-semibold tracking-wide">Sri Lanka Trusted Android/iOS/PC Panel Seller</p>
+
+            <!-- Platform Buttons -->
+            <div class="w-full flex flex-col gap-4 mb-10">
+                <button onclick="openCatalogModal('ios')" class="btn btn-ios w-full py-4 px-6 rounded-xl flex items-center justify-between text-lg font-bold tracking-wider transition-all">
+                    <div class="flex items-center gap-3">
+                        <i class="fa-brands fa-apple text-2xl"></i>
+                        <span>IOS</span>
+                    </div>
+                    <span id="iosCountBadge" class="text-xs bg-white/20 text-white px-2.5 py-1 rounded-full font-mono">0 Products</span>
+                </button>
+
+                <button onclick="openCatalogModal('android')" class="btn btn-android w-full py-4 px-6 rounded-xl flex items-center justify-between text-lg font-bold tracking-wider transition-all">
+                    <div class="flex items-center gap-3">
+                        <i class="fa-brands fa-android text-2xl"></i>
+                        <span>ANDROID</span>
+                    </div>
+                    <span id="androidCountBadge" class="text-xs bg-emerald-500/20 text-emerald-300 px-2.5 py-1 rounded-full font-mono">0 Products</span>
+                </button>
+
+                <button onclick="openCatalogModal('pc')" class="btn btn-pc w-full py-4 px-6 rounded-xl flex items-center justify-between text-lg font-bold tracking-wider transition-all">
+                    <div class="flex items-center gap-3">
+                        <i class="fa-brands fa-windows text-2xl"></i>
+                        <span>PC</span>
+                    </div>
+                    <span id="pcCountBadge" class="text-xs bg-sky-500/20 text-sky-300 px-2.5 py-1 rounded-full font-mono">0 Products</span>
+                </button>
+            </div>
+
+            <!-- Feature Highlights Section -->
+            <div class="w-full flex flex-col gap-8 mt-2">
+                <div class="flex flex-col items-center">
+                    <i class="fa-solid fa-shield-halved text-3xl text-cyan-400 mb-3 drop-shadow-[0_0_12px_rgba(0,242,254,0.8)]"></i>
+                    <h3 id="displayFeat1Title" class="text-lg font-bold text-white mb-1">100% Anti-Ban</h3>
+                    <p id="displayFeat1Desc" class="text-slate-400 text-xs leading-relaxed max-w-xs">Our panels are highly secure with bypass technology to keep your main ID safe.</p>
+                </div>
+
+                <div class="flex flex-col items-center">
+                    <i class="fa-solid fa-bolt text-3xl text-cyan-400 mb-3 drop-shadow-[0_0_12px_rgba(0,242,254,0.8)]"></i>
+                    <h3 id="displayFeat2Title" class="text-lg font-bold text-white mb-1">Instant Delivery</h3>
+                    <p id="displayFeat2Desc" class="text-slate-400 text-xs leading-relaxed max-w-xs">Get access to your premium panel immediately after successful payment.</p>
+                </div>
+
+                <div class="flex flex-col items-center">
+                    <i class="fa-solid fa-headset text-3xl text-cyan-400 mb-3 drop-shadow-[0_0_12px_rgba(0,242,254,0.8)]"></i>
+                    <h3 id="displayFeat3Title" class="text-lg font-bold text-white mb-1">24/7 Support</h3>
+                    <p id="displayFeat3Desc" class="text-slate-400 text-xs leading-relaxed max-w-xs">Our team is always online to help you with setups and updates.</p>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ================= PAGE 2: PUBLIC ADMIN CONTACT PAGE ================= -->
+        <section id="adminViewPage" class="w-full flex flex-col items-center hidden">
+            <!-- Glowing Red Avatar -->
+            <div class="avatar-glow admin-avatar-glow mb-5 relative flex items-center justify-center">
+                <img id="adminLogoDisplay" src="https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=300&q=80" alt="Admin S4G Avatar" class="w-full h-full rounded-full object-cover bg-slate-900" onerror="this.src='https://placehold.co/130x130/121824/ff0055?text=ADMIN'">
+            </div>
+
+            <!-- Admin Titles -->
+            <h1 class="admin-title-glow text-3xl font-orbitron font-extrabold tracking-wider mb-2">ADMIN PANEL</h1>
+            <p class="text-slate-400 text-sm mb-8 font-rajdhani font-semibold tracking-wide">Official S4G X CHEATZ Management & Security</p>
+
+            <!-- Admin Actions -->
+            <div class="w-full flex flex-col gap-4 mb-8">
+                <!-- Private Site Protected Button -->
+                <button onclick="openPasswordModal()" class="btn btn-private w-full py-4 px-6 rounded-xl flex items-center justify-center gap-3 text-lg font-bold tracking-wider transition-all">
+                    <i class="fa-solid fa-lock text-xl"></i>
+                    <span>PRIVATE SITE</span>
+                </button>
+
+                <!-- Admin WhatsApp Contact Link -->
+                <a id="adminWhatsAppBtn" href="https://wa.me/94700000000" target="_blank" class="btn btn-whatsapp-admin w-full py-4 px-6 rounded-xl flex items-center justify-center gap-3 text-lg font-bold tracking-wider transition-all">
+                    <i class="fa-brands fa-whatsapp text-2xl"></i>
+                    <span>ADMIN WHATSAPP</span>
+                </a>
+
+                <!-- Back to Main Page Button -->
+                <button onclick="toggleMainView()" class="btn btn-back w-full py-3.5 px-6 rounded-xl flex items-center justify-center gap-3 text-base font-bold tracking-wider transition-all mt-2">
+                    <i class="fa-solid fa-arrow-left"></i>
+                    <span>MAIN PAGE</span>
+                </button>
+            </div>
+
+            <!-- Admin Section Highlights -->
+            <div class="w-full flex flex-col gap-8 mt-2">
+                <div class="flex flex-col items-center">
+                    <i class="fa-solid fa-user-check text-3xl text-rose-500 mb-3 drop-shadow-[0_0_12px_rgba(255,0,85,0.8)]"></i>
+                    <h3 class="text-lg font-bold text-white mb-1">Verified Sellers Only</h3>
+                    <p class="text-slate-400 text-xs leading-relaxed max-w-xs">Always verify official admin contact before making payments to prevent scammers.</p>
+                </div>
+
+                <div class="flex flex-col items-center">
+                    <i class="fa-solid fa-key text-3xl text-rose-500 mb-3 drop-shadow-[0_0_12px_rgba(255,0,85,0.8)]"></i>
+                    <h3 class="text-lg font-bold text-white mb-1">Key Activations</h3>
+                    <p class="text-slate-400 text-xs leading-relaxed max-w-xs">Fast activation keys, custom setup guides, and instant resolution support.</p>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ================= PAGE 3: PRIVATE ADMIN MANAGEMENT DASHBOARD ================= -->
+        <section id="dashboardPage" class="w-full flex flex-col items-center hidden">
+            <!-- Top Dashboard Card Header -->
+            <div class="w-full glass-panel p-5 mb-6 text-left border-rose-500/40 relative">
+                <div class="flex items-center justify-between border-b border-slate-700/60 pb-3 mb-4">
+                    <div class="flex items-center gap-3">
+                        <i class="fa-solid fa-sliders text-2xl text-rose-500"></i>
+                        <div>
+                            <h2 class="text-lg font-orbitron font-bold text-white">PRIVATE DASHBOARD</h2>
+                            <p class="text-xs text-rose-400 font-mono">Logged in as Administrator</p>
+                        </div>
+                    </div>
+                    <button onclick="logoutAdmin()" class="px-3 py-1.5 rounded-lg bg-rose-500/20 text-rose-400 hover:bg-rose-500 hover:text-white text-xs font-bold transition">
+                        <i class="fa-solid fa-right-from-bracket mr-1"></i> Exit
+                    </button>
+                </div>
+
+                <!-- Dashboard Tab Navigation -->
+                <div class="flex gap-2">
+                    <button id="tabProductsBtn" onclick="switchDashTab('products')" class="flex-1 py-2 text-xs font-bold rounded-lg bg-rose-600 text-white transition">
+                        <i class="fa-solid fa-cubes mr-1"></i> Products
+                    </button>
+                    <button id="tabSettingsBtn" onclick="switchDashTab('settings')" class="flex-1 py-2 text-xs font-bold rounded-lg bg-slate-800 text-slate-300 hover:bg-slate-700 transition">
+                        <i class="fa-solid fa-gear mr-1"></i> Site Content
+                    </button>
+                </div>
+            </div>
+
+            <!-- TAB 1: PRODUCT MANAGER -->
+            <div id="dashTabProducts" class="w-full flex flex-col gap-4">
+                <div class="flex items-center justify-between">
+                    <h3 class="text-base font-bold text-white flex items-center gap-2">
+                        <i class="fa-solid fa-list-check text-cyan-400"></i> Product Catalog
+                    </h3>
+                    <button onclick="openProductForm()" class="px-3 py-2 bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-400 hover:to-teal-500 text-white font-bold text-xs rounded-xl shadow-lg shadow-emerald-900/40 flex items-center gap-1.5 transition">
+                        <i class="fa-solid fa-plus"></i> Add Product
+                    </button>
+                </div>
+
+                <!-- Admin Product List Container -->
+                <div id="adminProductList" class="flex flex-col gap-3 w-full">
+                    <!-- Dynamic Product Cards Injected Here -->
+                </div>
+            </div>
+
+            <!-- TAB 2: SITE CONTENT SETTINGS -->
+            <div id="dashTabSettings" class="w-full flex flex-col gap-4 hidden text-left">
+                <div class="glass-panel p-5 flex flex-col gap-4">
+                    <h3 class="text-base font-bold text-white flex items-center gap-2 border-b border-slate-700 pb-2">
+                        <i class="fa-solid fa-pen-to-square text-rose-500"></i> Edit Site Information
+                    </h3>
+
+                    <!-- Logo Image URL -->
+                    <div>
+                        <label class="block text-xs font-bold text-slate-300 mb-1">Logo / Avatar Image URL</label>
+                        <input id="inputLogoUrl" type="url" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2.5 text-xs text-white focus:border-rose-500 outline-none">
+                    </div>
+
+                    <!-- Main Title -->
+                    <div>
+                        <label class="block text-xs font-bold text-slate-300 mb-1">Main Site Title</label>
+                        <input id="inputMainTitle" type="text" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2.5 text-xs text-white focus:border-rose-500 outline-none">
+                    </div>
+
+                    <!-- Subtitle -->
+                    <div>
+                        <label class="block text-xs font-bold text-slate-300 mb-1">Subtitle</label>
+                        <input id="inputSubtitle" type="text" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2.5 text-xs text-white focus:border-rose-500 outline-none">
+                    </div>
+
+                    <!-- Admin WhatsApp Number -->
+                    <div>
+                        <label class="block text-xs font-bold text-slate-300 mb-1">WhatsApp Phone Number (with Country Code)</label>
+                        <input id="inputWhatsApp" type="text" placeholder="e.g. 94771234567" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2.5 text-xs text-white focus:border-rose-500 outline-none">
+                    </div>
+
+                    <!-- Feature 1 -->
+                    <div class="border-t border-slate-800 pt-3">
+                        <label class="block text-xs font-bold text-cyan-400 mb-1">Feature 1 Title & Description</label>
+                        <input id="inputFeat1Title" type="text" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2 text-xs text-white mb-2 outline-none">
+                        <textarea id="inputFeat1Desc" rows="2" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2 text-xs text-white outline-none"></textarea>
+                    </div>
+
+                    <!-- Feature 2 -->
+                    <div class="border-t border-slate-800 pt-3">
+                        <label class="block text-xs font-bold text-cyan-400 mb-1">Feature 2 Title & Description</label>
+                        <input id="inputFeat2Title" type="text" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2 text-xs text-white mb-2 outline-none">
+                        <textarea id="inputFeat2Desc" rows="2" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2 text-xs text-white outline-none"></textarea>
+                    </div>
+
+                    <!-- Feature 3 -->
+                    <div class="border-t border-slate-800 pt-3">
+                        <label class="block text-xs font-bold text-cyan-400 mb-1">Feature 3 Title & Description</label>
+                        <input id="inputFeat3Title" type="text" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2 text-xs text-white mb-2 outline-none">
+                        <textarea id="inputFeat3Desc" rows="2" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2 text-xs text-white outline-none"></textarea>
+                    </div>
+
+                    <!-- Save & Reset Buttons -->
+                    <div class="flex gap-2 pt-2">
+                        <button onclick="saveSiteSettings()" class="flex-1 py-3 bg-rose-600 hover:bg-rose-500 text-white font-bold text-xs rounded-xl shadow-lg shadow-rose-900/40 transition">
+                            <i class="fa-solid fa-floppy-disk mr-1"></i> Save Changes
+                        </button>
+                        <button onclick="resetDefaults()" class="px-4 py-3 bg-slate-800 hover:bg-slate-700 text-slate-300 font-bold text-xs rounded-xl transition">
+                            <i class="fa-solid fa-rotate-left mr-1"></i> Reset All
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+
+    <!-- ================= PUBLIC PRODUCT CATALOG POPUP MODAL ================= -->
+    <div id="catalogModal" class="fixed inset-0 bg-black/85 backdrop-blur-md flex items-center justify-center p-4 z-50 hidden">
+        <div class="modal-enter glass-panel border-slate-700 w-full max-w-lg max-h-[90vh] flex flex-col overflow-hidden shadow-2xl relative">
+            <!-- Modal Header -->
+            <div id="catalogModalHeader" class="p-4 border-b border-slate-700/80 flex items-center justify-between bg-slate-900/60">
+                <div class="flex items-center gap-3">
+                    <i id="catalogPlatformIcon" class="text-2xl"></i>
+                    <div>
+                        <h2 id="catalogPlatformTitle" class="text-lg font-orbitron font-bold text-white tracking-wider">PRODUCTS</h2>
+                        <p class="text-xs text-slate-400">Select a product to view video & purchase</p>
+                    </div>
+                </div>
+                <button onclick="closeCatalogModal()" class="w-8 h-8 rounded-full bg-slate-800 hover:bg-slate-700 text-slate-400 hover:text-white flex items-center justify-center transition">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <!-- Modal Product List Container -->
+            <div id="catalogProductContainer" class="p-4 overflow-y-auto flex flex-col gap-6 text-left">
+                <!-- Dynamically populated products -->
+            </div>
+        </div>
+    </div>
+
+
+    <!-- ================= PASSWORD SECURITY MODAL ================= -->
+    <div id="passwordModal" class="fixed inset-0 bg-black/85 backdrop-blur-md flex items-center justify-center p-4 z-50 hidden">
+        <div class="modal-enter glass-panel border-rose-500/60 w-full max-w-xs p-6 text-center shadow-[0_0_35px_rgba(255,0,85,0.4)] relative">
+            <i class="fa-solid fa-user-lock text-4xl text-rose-500 mb-3 drop-shadow-[0_0_12px_rgba(255,0,85,0.8)]"></i>
+            <h2 class="text-xl font-orbitron font-bold text-white mb-1">Enter Password</h2>
+            <p class="text-xs text-slate-400 mb-4">Secret Private Site Passcode</p>
+
+            <input id="passcodeInput" type="password" placeholder="Passcode එක දාන්න" class="w-full bg-slate-950 border border-rose-500/60 rounded-xl px-4 py-3 text-center text-white text-sm outline-none mb-2 focus:ring-2 focus:ring-rose-500">
+            
+            <p id="passcodeError" class="text-xs text-rose-400 font-bold mb-3 hidden">
+                <i class="fa-solid fa-triangle-exclamation mr-1"></i> මුරපදය වැරදියි! නැවත උත්සාහ කරන්න.
+            </p>
+
+            <div class="flex gap-2">
+                <button onclick="closePasswordModal()" class="flex-1 py-2.5 bg-slate-800 hover:bg-slate-700 text-slate-300 font-bold text-xs rounded-xl transition">
+                    Cancel
+                </button>
+                <button onclick="verifyPassword()" class="flex-1 py-2.5 bg-rose-600 hover:bg-rose-500 text-white font-bold text-xs rounded-xl shadow-lg shadow-rose-900/50 transition">
+                    Enter
+                </button>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- ================= PRODUCT ADD / EDIT FORM MODAL ================= -->
+    <div id="productFormModal" class="fixed inset-0 bg-black/85 backdrop-blur-md flex items-center justify-center p-4 z-50 hidden">
+        <div class="modal-enter glass-panel border-slate-700 w-full max-w-md p-5 text-left shadow-2xl relative max-h-[90vh] overflow-y-auto">
+            <div class="flex items-center justify-between border-b border-slate-700 pb-3 mb-4">
+                <h3 id="productFormTitle" class="text-base font-orbitron font-bold text-white">Add New Product</h3>
+                <button onclick="closeProductForm()" class="text-slate-400 hover:text-white">
+                    <i class="fa-solid fa-xmark text-lg"></i>
+                </button>
+            </div>
+
+            <form id="productForm" onsubmit="handleProductSubmit(event)" class="flex flex-col gap-3">
+                <input type="hidden" id="formProductId">
+
+                <div>
+                    <label class="block text-xs font-bold text-slate-300 mb-1">Product Name</label>
+                    <input id="formProductName" type="text" placeholder="e.g. iOS VIP VIP Bypass Menu" required class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2.5 text-xs text-white outline-none focus:border-rose-500">
+                </div>
+
+                <div class="grid grid-cols-2 gap-3">
+                    <div>
+                        <label class="block text-xs font-bold text-slate-300 mb-1">Platform</label>
+                        <select id="formProductPlatform" required class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2.5 text-xs text-white outline-none focus:border-rose-500">
+                            <option value="ios">iOS</option>
+                            <option value="android">Android</option>
+                            <option value="pc">PC</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-slate-300 mb-1">Price (LKR / USD)</label>
+                        <input id="formProductPrice" type="text" placeholder="e.g. Rs. 2,500 / $10" required class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2.5 text-xs text-white outline-none focus:border-rose-500">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-slate-300 mb-1">Video Showcase Link (YouTube Embed or Direct MP4)</label>
+                    <input id="formProductVideo" type="url" placeholder="https://www.youtube.com/watch?v=..." class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2.5 text-xs text-white outline-none focus:border-rose-500">
+                    <p class="text-[10px] text-slate-500 mt-1">Paste standard YouTube link or MP4 link for showcase player.</p>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-slate-300 mb-1">Product Description & Features</label>
+                    <textarea id="formProductDesc" rows="3" placeholder="Enter key features, anti-ban status, setup instructions..." required class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2.5 text-xs text-white outline-none focus:border-rose-500"></textarea>
+                </div>
+
+                <div class="flex items-center gap-2 my-1">
+                    <input type="checkbox" id="formProductInStock" checked class="w-4 h-4 accent-rose-500 rounded">
+                    <label for="formProductInStock" class="text-xs font-bold text-slate-300">In Stock / Available</label>
+                </div>
+
+                <div class="flex gap-2 pt-2">
+                    <button type="button" onclick="closeProductForm()" class="flex-1 py-2.5 bg-slate-800 hover:bg-slate-700 text-slate-300 font-bold text-xs rounded-xl transition">Cancel</button>
+                    <button type="submit" class="flex-1 py-2.5 bg-rose-600 hover:bg-rose-500 text-white font-bold text-xs rounded-xl shadow-lg shadow-rose-900/50 transition">Save Product</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+    <!-- ================= NOTIFICATION TOAST CONTAINER ================= -->
+    <div id="toast" class="fixed bottom-5 left-1/2 -translate-x-1/2 px-5 py-3 rounded-xl bg-slate-900/90 border border-cyan-500/50 text-white text-xs font-bold shadow-2xl flex items-center gap-2 z-50 transition-all duration-300 opacity-0 pointer-events-none">
+        <i id="toastIcon" class="fa-solid fa-circle-check text-cyan-400"></i>
+        <span id="toastMsg">Operation successful!</span>
+    </div>
+
+
+    <script>
+        // Storage Key
+        const STORAGE_KEY = 'S4G_CHEATZ_APP_DATA_V2';
+        const CORRECT_PASSCODE = 'Sathishka@1234';
+
+        // Default Data Seed
+        const DEFAULT_DATA = {
+            settings: {
+                logoUrl: 'https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=300&q=80',
+                title: 'S4G X CHEATZ',
+                subtitle: 'Sri Lanka Trusted Android/iOS/PC Panel Seller',
+                whatsappNumber: '94700000000',
+                feat1Title: '100% Anti-Ban',
+                feat1Desc: 'Our panels are highly secure with bypass technology to keep your main ID safe.',
+                feat2Title: 'Instant Delivery',
+                feat2Desc: 'Get access to your premium panel immediately after successful payment.',
+                feat3Title: '24/7 Support',
+                feat3Desc: 'Our team is always online to help you with setups and updates.'
+            },
+            products: [
+                {
+                    id: 'prod-ios-1',
+                    name: 'iOS VIP Chams & Aimbot Non-Jailbreak',
+                    platform: 'ios',
+                    price: 'Rs. 3,500 / $12',
+                    description: '• No Jailbreak required\n• Safe for Main ID\n• Smooth Aimbot + ESP Chams\n• Easy Config File Installation',
+                    videoUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+                    inStock: true
+                },
+                {
+                    id: 'prod-android-1',
+                    name: 'Android Injector Anti-Ban VVIP',
+                    platform: 'android',
+                    price: 'Rs. 2,200 / $8',
+                    description: '• Supports Android 10 to 14\n• High Headshot Rate 90%\n• Zero Lag Bypass Menu\n• Direct Key Activation',
+                    videoUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+                    inStock: true
+                },
+                {
+                    id: 'prod-pc-1',
+                    name: 'PC Emulator Bypass & External Menu',
+                    platform: 'pc',
+                    price: 'Rs. 4,500 / $15',
+                    description: '• Supports Gameloop / BlueStacks\n• 100% Stream Proof\n• Memory Aim Lock & Location Radar\n• Auto-Update Launcher',
+                    videoUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+                    inStock: true
+                }
+            ]
+        };
+
+        // Application State
+        let appData = null;
+        let isAuthenticatedAdmin = false;
+
+
+        // Load or initialize state
+        function initData() {
+            const stored = localStorage.getItem(STORAGE_KEY);
+            if (stored) {
+                try {
+                    appData = JSON.parse(stored);
+                } catch(e) {
+                    appData = JSON.parse(JSON.stringify(DEFAULT_DATA));
+                }
+            } else {
+                appData = JSON.parse(JSON.stringify(DEFAULT_DATA));
+                saveData();
+            }
+            renderMainSite();
+        }
+
+        function saveData() {
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(appData));
+            renderMainSite();
+        }
+
+        function showToast(msg, isError = false) {
+            const toast = document.getElementById('toast');
+            const toastMsg = document.getElementById('toastMsg');
+            const toastIcon = document.getElementById('toastIcon');
+
+            toastMsg.innerText = msg;
+            if(isError) {
+                toastIcon.className = 'fa-solid fa-circle-xmark text-rose-500';
+                toast.classList.replace('border-cyan-500/50', 'border-rose-500/50');
+            } else {
+                toastIcon.className = 'fa-solid fa-circle-check text-cyan-400';
+                toast.classList.replace('border-rose-500/50', 'border-cyan-500/50');
+            }
+
+            toast.classList.remove('opacity-0', 'pointer-events-none');
+            toast.classList.add('opacity-100');
+
+            setTimeout(() => {
+                toast.classList.remove('opacity-100');
+                toast.classList.add('opacity-0', 'pointer-events-none');
+            }, 3000);
+        }
+
+        // Render main page dynamic contents
+        function renderMainSite() {
+            const s = appData.settings;
+            document.getElementById('displayLogo').src = s.logoUrl;
+            document.getElementById('adminLogoDisplay').src = s.logoUrl;
+            document.getElementById('displayTitle').innerText = s.title;
+            document.getElementById('displaySubtitle').innerText = s.subtitle;
+
+            // WhatsApp link
+            const waNumber = s.whatsappNumber.replace(/[^0-9]/g, '');
+            document.getElementById('adminWhatsAppBtn').href = `https://wa.me/${waNumber}`;
+
+            // Features
+            document.getElementById('displayFeat1Title').innerText = s.feat1Title;
+            document.getElementById('displayFeat1Desc').innerText = s.feat1Desc;
+            document.getElementById('displayFeat2Title').innerText = s.feat2Title;
+            document.getElementById('displayFeat2Desc').innerText = s.feat2Desc;
+            document.getElementById('displayFeat3Title').innerText = s.feat3Title;
+            document.getElementById('displayFeat3Desc').innerText = s.feat3Desc;
+
+            // Product Count Badges
+            const iosCount = appData.products.filter(p => p.platform === 'ios').length;
+            const androidCount = appData.products.filter(p => p.platform === 'android').length;
+            const pcCount = appData.products.filter(p => p.platform === 'pc').length;
+
+            document.getElementById('iosCountBadge').innerText = `${iosCount} ${iosCount === 1 ? 'Product' : 'Products'}`;
+            document.getElementById('androidCountBadge').innerText = `${androidCount} ${androidCount === 1 ? 'Product' : 'Products'}`;
+            document.getElementById('pcCountBadge').innerText = `${pcCount} ${pcCount === 1 ? 'Product' : 'Products'}`;
+
+            if(isAuthenticatedAdmin) {
+                renderProductManager();
+                populateSettingsForm();
+            }
+        }
+
+        // View Toggling logic (Main View vs Public Admin View vs Admin Dashboard)
+        function toggleMainView() {
+            const homePage = document.getElementById('homePage');
+            const adminViewPage = document.getElementById('adminViewPage');
+            const dashboardPage = document.getElementById('dashboardPage');
+            const toggleText = document.getElementById('toggleText');
+
+            if (isAuthenticatedAdmin) {
+                // If logged in, button switches back to home page
+                homePage.classList.remove('hidden');
+                adminViewPage.classList.add('hidden');
+                dashboardPage.classList.add('hidden');
+                toggleText.innerText = "Admin Page";
+                isAuthenticatedAdmin = false;
+                showToast("Logged out from Private Dashboard");
+                return;
+            }
+
+            if (homePage.classList.contains('hidden')) {
+                // Return to Home Page
+                homePage.classList.remove('hidden');
+                adminViewPage.classList.add('hidden');
+                dashboardPage.classList.add('hidden');
+                toggleText.innerText = "Admin Page";
+            } else {
+                // Switch to Admin Public View
+                homePage.classList.add('hidden');
+                adminViewPage.classList.remove('hidden');
+                dashboardPage.classList.add('hidden');
+                toggleText.innerText = "Main Page";
+            }
+        }
+
+
+
+        // Helper to format YouTube embed URLs
+        function getEmbedVideoHtml(url) {
+            if (!url) return '';
+            
+            // Check YouTube
+            let youtubeId = '';
+            const ytMatch = url.match(/(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))([\w-]{11})/);
+            if (ytMatch && ytMatch[1]) {
+                youtubeId = ytMatch[1];
+                return `<div class="w-full aspect-video rounded-xl overflow-hidden my-3 border border-slate-700 bg-black">
+                    <iframe class="w-full h-full" src="https://www.youtube.com/embed/${youtubeId}" title="Product Demo Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>`;
+            }
+
+            // Check MP4
+            if (url.endsWith('.mp4') || url.endsWith('.webm')) {
+                return `<div class="w-full rounded-xl overflow-hidden my-3 border border-slate-700 bg-black">
+                    <video class="w-full h-auto max-h-56" controls>
+                        <source src="${url}" type="video/mp4">
+                        Your browser does not support HTML video.
+                    </video>
+                </div>`;
+            }
+
+            // Fallback video link button
+            return `<div class="my-2">
+                <a href="${url}" target="_blank" class="inline-flex items-center gap-2 text-xs font-bold text-cyan-400 hover:underline">
+                    <i class="fa-solid fa-circle-play text-sm"></i> Watch Demo Showcase Video
+                </a>
+            </div>`;
+        }
+
+        // Open Public Product Catalog Modal
+        function openCatalogModal(platform) {
+            const modal = document.getElementById('catalogModal');
+            const headerIcon = document.getElementById('catalogPlatformIcon');
+            const headerTitle = document.getElementById('catalogPlatformTitle');
+            const container = document.getElementById('catalogProductContainer');
+
+            let platformName = 'PRODUCTS';
+            let iconClass = 'fa-solid fa-box-open';
+            let iconColor = 'text-white';
+
+            if (platform === 'ios') {
+                platformName = 'IOS PRODUCTS';
+                iconClass = 'fa-brands fa-apple';
+                iconColor = 'text-white';
+            } else if (platform === 'android') {
+                platformName = 'ANDROID PRODUCTS';
+                iconClass = 'fa-brands fa-android';
+                iconColor = 'text-emerald-400';
+            } else if (platform === 'pc') {
+                platformName = 'PC PRODUCTS';
+                iconClass = 'fa-brands fa-windows';
+                iconColor = 'text-sky-400';
+            }
+
+            headerIcon.className = `${iconClass} ${iconColor}`;
+            headerTitle.innerText = platformName;
+
+            // Filter Products
+            const prods = appData.products.filter(p => p.platform === platform);
+
+            if (prods.length === 0) {
+                container.innerHTML = `
+                    <div class="py-12 text-center text-slate-500">
+                        <i class="fa-solid fa-folder-open text-4xl mb-3 opacity-40"></i>
+                        <p class="text-sm font-bold">No active products available for ${platform.toUpperCase()}</p>
+                        <p class="text-xs text-slate-600 mt-1">Please check back soon or contact admin directly.</p>
+                    </div>
+                `;
+            } else {
+                const waNum = appData.settings.whatsappNumber.replace(/[^0-9]/g, '');
+                container.innerHTML = prods.map(p => {
+                    const buyMsg = encodeURIComponent(`Hello S4G X CHEATZ! I want to buy:\n\n*Product:* ${p.name}\n*Platform:* ${p.platform.toUpperCase()}\n*Price:* ${p.price}`);
+                    const waLink = `https://wa.me/${waNum}?text=${buyMsg}`;
+                    const videoPlayer = getEmbedVideoHtml(p.videoUrl);
+
+                    return `
+                        <div class="glass-panel p-4 border-slate-700/70 hover:border-cyan-500/40 transition flex flex-col gap-2">
+                            <div class="flex items-start justify-between gap-2">
+                                <div>
+                                    <h3 class="font-bold text-base text-white leading-tight">${p.name}</h3>
+                                    <span class="inline-block px-2 py-0.5 rounded text-[10px] font-bold font-mono mt-1 ${p.inStock ? 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/30' : 'bg-rose-500/20 text-rose-400 border border-rose-500/30'}">
+                                        ${p.inStock ? 'IN STOCK' : 'OUT OF STOCK'}
+                                    </span>
+                                </div>
+                                <div class="text-right">
+                                    <div class="text-sm font-orbitron font-extrabold text-cyan-400">${p.price}</div>
+                                </div>
+                            </div>
+
+                            ${videoPlayer}
+
+                            <div class="text-xs text-slate-300 leading-relaxed whitespace-pre-line bg-slate-900/60 p-3 rounded-lg border border-slate-800 my-1">
+                                ${p.description}
+                            </div>
+
+                            <a href="${waLink}" target="_blank" class="w-full py-3 mt-1 bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-400 hover:to-teal-500 text-white font-bold text-xs rounded-xl flex items-center justify-center gap-2 shadow-lg shadow-emerald-950/50 transition">
+                                <i class="fa-brands fa-whatsapp text-lg"></i>
+                                <span>BUY / INQUIRE ON WHATSAPP</span>
+                            </a>
+                        </div>
+                    `;
+                }).join('');
+            }
+
+            modal.classList.remove('hidden');
+        }
+
+        function closeCatalogModal() {
+            document.getElementById('catalogModal').classList.add('hidden');
+        }
+
+
+
+        // Password Security Modal logic
+        function openPasswordModal() {
+            document.getElementById('passwordModal').classList.remove('hidden');
+            document.getElementById('passcodeInput').value = '';
+            document.getElementById('passcodeError').classList.add('hidden');
+            document.getElementById('passcodeInput').focus();
+        }
+
+        function closePasswordModal() {
+            document.getElementById('passwordModal').classList.add('hidden');
+        }
+
+        function verifyPassword() {
+            const inputVal = document.getElementById('passcodeInput').value;
+            const errElem = document.getElementById('passcodeError');
+
+            if (inputVal === CORRECT_PASSCODE) {
+                closePasswordModal();
+                isAuthenticatedAdmin = true;
+                
+                // Hide main and public admin pages, unveil private dashboard
+                document.getElementById('homePage').classList.add('hidden');
+                document.getElementById('adminViewPage').classList.add('hidden');
+                document.getElementById('dashboardPage').classList.remove('hidden');
+                document.getElementById('toggleText').innerText = "Main Page";
+
+                renderMainSite();
+                showToast("Welcome to Private Admin Dashboard!");
+            } else {
+                errElem.classList.remove('hidden');
+            }
+        }
+
+        function logoutAdmin() {
+            isAuthenticatedAdmin = false;
+            document.getElementById('dashboardPage').classList.add('hidden');
+            document.getElementById('homePage').classList.remove('hidden');
+            document.getElementById('toggleText').innerText = "Admin Page";
+            showToast("Successfully logged out");
+        }
+
+        // Switch Dashboard Tabs
+        function switchDashTab(tab) {
+            const btnProd = document.getElementById('tabProductsBtn');
+            const btnSet = document.getElementById('tabSettingsBtn');
+            const tabProd = document.getElementById('dashTabProducts');
+            const tabSet = document.getElementById('dashTabSettings');
+
+            if(tab === 'products') {
+                btnProd.className = "flex-1 py-2 text-xs font-bold rounded-lg bg-rose-600 text-white transition";
+                btnSet.className = "flex-1 py-2 text-xs font-bold rounded-lg bg-slate-800 text-slate-300 hover:bg-slate-700 transition";
+                tabProd.classList.remove('hidden');
+                tabSet.classList.add('hidden');
+            } else {
+                btnSet.className = "flex-1 py-2 text-xs font-bold rounded-lg bg-rose-600 text-white transition";
+                btnProd.className = "flex-1 py-2 text-xs font-bold rounded-lg bg-slate-800 text-slate-300 hover:bg-slate-700 transition";
+                tabSet.classList.remove('hidden');
+                tabProd.classList.add('hidden');
+            }
+        }
+
+        // Render Admin Product List
+        function renderProductManager() {
+            const container = document.getElementById('adminProductList');
+            if (appData.products.length === 0) {
+                container.innerHTML = `<div class="p-6 text-center text-slate-500 text-xs">No products added yet. Click 'Add Product' above.</div>`;
+                return;
+            }
+
+            container.innerHTML = appData.products.map(p => `
+                <div class="glass-panel p-3 border-slate-700 flex items-center justify-between gap-3 text-left">
+                    <div class="flex-1 min-w-0">
+                        <div class="flex items-center gap-2 mb-1">
+                            <span class="uppercase text-[9px] font-bold font-mono px-2 py-0.5 rounded ${p.platform === 'ios' ? 'bg-white/20 text-white' : p.platform === 'android' ? 'bg-emerald-500/20 text-emerald-400' : 'bg-sky-500/20 text-sky-400'}">
+                                ${p.platform}
+                            </span>
+                            <span class="text-xs font-bold text-rose-400 font-mono">${p.price}</span>
+                        </div>
+                        <h4 class="text-xs font-bold text-white truncate">${p.name}</h4>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <button onclick="openProductForm('${p.id}')" class="w-8 h-8 rounded-lg bg-slate-800 hover:bg-slate-700 text-cyan-400 flex items-center justify-center transition">
+                            <i class="fa-solid fa-pen-to-square text-xs"></i>
+                        </button>
+                        <button onclick="deleteProduct('${p.id}')" class="w-8 h-8 rounded-lg bg-slate-800 hover:bg-rose-900/50 text-rose-400 flex items-center justify-center transition">
+                            <i class="fa-solid fa-trash-can text-xs"></i>
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Product Form Modal Controls (Add & Edit)
+        function openProductForm(productId = null) {
+            const modal = document.getElementById('productFormModal');
+            const title = document.getElementById('productFormTitle');
+
+            if (productId) {
+                const prod = appData.products.find(p => p.id === productId);
+                if (!prod) return;
+
+                title.innerText = "Edit Product";
+                document.getElementById('formProductId').value = prod.id;
+                document.getElementById('formProductName').value = prod.name;
+                document.getElementById('formProductPlatform').value = prod.platform;
+                document.getElementById('formProductPrice').value = prod.price;
+                document.getElementById('formProductVideo').value = prod.videoUrl || '';
+                document.getElementById('formProductDesc').value = prod.description;
+                document.getElementById('formProductInStock').checked = prod.inStock;
+            } else {
+                title.innerText = "Add New Product";
+                document.getElementById('formProductId').value = '';
+                document.getElementById('productForm').reset();
+                document.getElementById('formProductInStock').checked = true;
+            }
+
+            modal.classList.remove('hidden');
+        }
+
+        function closeProductForm() {
+            document.getElementById('productFormModal').classList.add('hidden');
+        }
+
+        function handleProductSubmit(e) {
+            e.preventDefault();
+            const id = document.getElementById('formProductId').value;
+            const name = document.getElementById('formProductName').value.trim();
+            const platform = document.getElementById('formProductPlatform').value;
+            const price = document.getElementById('formProductPrice').value.trim();
+            const videoUrl = document.getElementById('formProductVideo').value.trim();
+            const description = document.getElementById('formProductDesc').value.trim();
+            const inStock = document.getElementById('formProductInStock').checked;
+
+            if (id) {
+                // Update existing
+                const index = appData.products.findIndex(p => p.id === id);
+                if (index !== -1) {
+                    appData.products[index] = { id, name, platform, price, videoUrl, description, inStock };
+                    showToast("Product updated successfully!");
+                }
+            } else {
+                // Add new
+                const newId = 'prod-' + Date.now();
+                appData.products.push({ id: newId, name, platform, price, videoUrl, description, inStock });
+                showToast("New product created!");
+            }
+
+            saveData();
+            closeProductForm();
+        }
+
+        function deleteProduct(productId) {
+            appData.products = appData.products.filter(p => p.id !== productId);
+            saveData();
+            showToast("Product deleted!");
+        }
+
+        // Settings Form Controls
+        function populateSettingsForm() {
+            const s = appData.settings;
+            document.getElementById('inputLogoUrl').value = s.logoUrl;
+            document.getElementById('inputMainTitle').value = s.title;
+            document.getElementById('inputSubtitle').value = s.subtitle;
+            document.getElementById('inputWhatsApp').value = s.whatsappNumber;
+            document.getElementById('inputFeat1Title').value = s.feat1Title;
+            document.getElementById('inputFeat1Desc').value = s.feat1Desc;
+            document.getElementById('inputFeat2Title').value = s.feat2Title;
+            document.getElementById('inputFeat2Desc').value = s.feat2Desc;
+            document.getElementById('inputFeat3Title').value = s.feat3Title;
+            document.getElementById('inputFeat3Desc').value = s.feat3Desc;
+        }
+
+        function saveSiteSettings() {
+            appData.settings = {
+                logoUrl: document.getElementById('inputLogoUrl').value.trim() || DEFAULT_DATA.settings.logoUrl,
+                title: document.getElementById('inputMainTitle').value.trim() || DEFAULT_DATA.settings.title,
+                subtitle: document.getElementById('inputSubtitle').value.trim() || DEFAULT_DATA.settings.subtitle,
+                whatsappNumber: document.getElementById('inputWhatsApp').value.trim() || DEFAULT_DATA.settings.whatsappNumber,
+                feat1Title: document.getElementById('inputFeat1Title').value.trim(),
+                feat1Desc: document.getElementById('inputFeat1Desc').value.trim(),
+                feat2Title: document.getElementById('inputFeat2Title').value.trim(),
+                feat2Desc: document.getElementById('inputFeat2Desc').value.trim(),
+                feat3Title: document.getElementById('inputFeat3Title').value.trim(),
+                feat3Desc: document.getElementById('inputFeat3Desc').value.trim(),
+            };
+
+            saveData();
+            showToast("Site settings saved!");
+        }
+
+        function resetDefaults() {
+            appData = JSON.parse(JSON.stringify(DEFAULT_DATA));
+            saveData();
+            populateSettingsForm();
+            showToast("Reset to default content!");
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            initData();
+
+            // Enter key trigger for password input
+            document.getElementById('passcodeInput').addEventListener('keyup', (e) => {
+                if (e.key === 'Enter') verifyPassword();
+            });
+        });
+    </script>
+</body>
+</html>
